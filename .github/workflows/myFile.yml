@@ -1,20 +1,11 @@
-name: Manual Deployment
+name: Github Event
 
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: "Select deployment environment"
-        required: true
-        type: choice
-        options:
-          - staging
-          - production
+  push
 
 jobs:
-  deploy:
+  event-info-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Show selected environment
-        run: echo "Selected environment is ${{ inputs.environment }}"
+      - name: Print Trigger Event
+        run: echo "The event that triggered this workflow is:- ${{ github.event_name}} event"
