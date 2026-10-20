@@ -1,0 +1,16 @@
+name: My First Workflow
+on: push
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 
+        run: echo "Hello From Step-1"
+      - name: Set up Python
+        run: echo "Hello From Step-2"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Final Step
+        run: echo "Hello From Final Step"
+           
