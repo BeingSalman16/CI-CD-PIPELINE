@@ -1,21 +1,20 @@
-name: My First Workflow
+name: Manual Deployment
 
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select deployment environment"
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
 
 jobs:
-  job1:
+  deploy:
     runs-on: ubuntu-latest
-    steps:
-      - name: Step 1
-        run: echo "Hello From Step-1"
 
-      - name: Set up Python
-        run: echo "Hello From Step-2"
-
-  job2:
-    runs-on: ubuntu-latest
     steps:
-      - name: Final Step
-        run: echo "Hello From Final Step"
-      - name: Another Step
-        run: echo "Hello From Another Step"
+      - name: Show selected environment
+        run: echo "Selected environment is ${{ inputs.environment }}"
