@@ -26,9 +26,13 @@ jobs:
   validation-job:
     runs-on: ubuntu-latest
 
+    env:
+      APPLICATION_NAME: payment-service
+      OWNER: CloudWithVarJosh  
+
     steps:
       - name: Print Workflow Context
         run: |
           echo "Workflow triggered successfully"
-          echo "Event Type: $GITHUB_EVENT_NAME"
-          echo "Branch: $GITHUB_REF_NAME"
+          echo "Event Type: $APPLICATION_NAME"
+          echo "Branch: $OWNER"
